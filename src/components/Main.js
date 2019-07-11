@@ -1,7 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import ItemContainer from "./ItemContainer";
-import { SH, SW } from "../utils/sizes";
+import { SH } from "../utils/sizes";
+import { useSelector } from "react-redux";
 const items = [
   {
     imgUri: "https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg",
@@ -12,7 +13,19 @@ const items = [
     price: "65,00"
   }
 ];
+function printList(cart) {
+  var aux = [];
+  cart.map((x, i) =>
+    aux.push(
+      <Text key={i} style={styles.text}>
+        {x.price}
+      </Text>
+    )
+  );
+  return aux;
+}
 export default function Main() {
+  const cart = useSelector(state => state.cart);
   return (
     <View style={styles.main}>
       <Text style={styles.text}>Cart App</Text>
@@ -25,6 +38,7 @@ export default function Main() {
         <ItemContainer item={items[0]} />
         <ItemContainer item={items[1]} />
       </View>
+      <Text style={styles.text}> {printList(cart)}</Text>
     </View>
   );
 }

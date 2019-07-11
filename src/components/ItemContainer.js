@@ -10,8 +10,9 @@ function addToCart(item) {
   };
 }
 function ItemContainer({ item }) {
+  const dispatch = useDispatch();
   return (
-    <TouchableOpacity onPress={() => useDispatch(addToCart(item))}>
+    <TouchableOpacity onPress={() => dispatch(addToCart(item))}>
       <View style={styles.container}>
         <Image
           style={styles.img}
