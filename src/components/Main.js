@@ -2,6 +2,16 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import ItemContainer from "./ItemContainer";
 import { SH, SW } from "../utils/sizes";
+const items = [
+  {
+    imgUri: "https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg",
+    price: "54,00"
+  },
+  {
+    imgUri: "https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg",
+    price: "65,00"
+  }
+];
 export default function Main() {
   return (
     <View style={styles.main}>
@@ -12,14 +22,8 @@ export default function Main() {
           justifyContent: "space-between"
         }}
       >
-        <ItemContainer
-          imgUri="https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg"
-          price="54,00"
-        />
-        <ItemContainer
-          imgUri="https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg"
-          price="54,00"
-        />
+        <ItemContainer item={items[0]} />
+        <ItemContainer item={items[1]} />
       </View>
     </View>
   );

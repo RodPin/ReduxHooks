@@ -1,18 +1,29 @@
 import React from "react";
-import { View, StyleSheet, Text, Image } from "react-native";
+import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { SH, SW } from "../utils/sizes";
+import { useDispatch } from "react-redux";
 
-const ItemContainer = ({ imgUri, price }) => (
-  <View style={styles.container}>
-    <Image
-      style={styles.img}
-      source={{
-        uri: imgUri
-      }}
-    />
-    <Text style={styles.text}>R${price}</Text>
-  </View>
-);
+function addToCart(item) {
+  return {
+    type: "ADD_TO_CART",
+    item
+  };
+}
+function ItemContainer({ item }) {
+  return (
+    <TouchableOpacity onPress={() => useDispatch(addToCart(item))}>
+      <View style={styles.container}>
+        <Image
+          style={styles.img}
+          source={{
+            uri: item.imgUri
+          }}
+        />
+        <Text style={styles.text}>R$ {item.price}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
