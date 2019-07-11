@@ -9,19 +9,23 @@ const items = [
     price: "54,00"
   },
   {
-    imgUri: "https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg",
+    imgUri:
+      "https://www.spalding.com/dw/image/v2/ABAH_PRD/on/demandware.static/-/Sites-masterCatalog_SPALDING/default/dwf0e15940/images/hi-res/74876E_SIDE.jpg?sw=555&sh=689&sm=cut",
     price: "65,00"
   }
 ];
 function printList(cart) {
   var aux = [];
-  cart.map((x, i) =>
-    aux.push(
-      <Text key={i} style={styles.text}>
-        {x.price}
-      </Text>
-    )
-  );
+
+  if (cart) {
+    cart.map((x, i) =>
+      aux.push(
+        <Text key={i} style={styles.text}>
+          {x.price}
+        </Text>
+      )
+    );
+  }
   return aux;
 }
 export default function Main() {

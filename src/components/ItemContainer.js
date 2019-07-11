@@ -9,6 +9,12 @@ function addToCart(item) {
     item
   };
 }
+function removeFromCart(item) {
+  return {
+    type: "REMOVE_FROM_CART",
+    item
+  };
+}
 function ItemContainer({ item }) {
   const dispatch = useDispatch();
   return (
@@ -22,6 +28,11 @@ function ItemContainer({ item }) {
         />
         <Text style={styles.text}>R$ {item.price}</Text>
       </View>
+      <TouchableOpacity onPress={() => dispatch(removeFromCart(item))}>
+        <View>
+          <Text style={{ ...styles.text, color: "red" }}>R$ {item.price}</Text>
+        </View>
+      </TouchableOpacity>
     </TouchableOpacity>
   );
 }
