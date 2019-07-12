@@ -3,31 +3,21 @@ import { View, Text, StyleSheet } from "react-native";
 import ItemContainer from "./ItemContainer";
 import { SH } from "../utils/sizes";
 import { useSelector } from "react-redux";
+import Cart from "./Cart";
 const items = [
   {
+    name: "Soccer Ball",
     imgUri: "https://www.urbanize.com.ph/3500-big_default_2x/soccer-ball.jpg",
-    price: "54,00"
+    price: 54.0
   },
   {
+    name: "BasketBall",
     imgUri:
       "https://www.spalding.com/dw/image/v2/ABAH_PRD/on/demandware.static/-/Sites-masterCatalog_SPALDING/default/dwf0e15940/images/hi-res/74876E_SIDE.jpg?sw=555&sh=689&sm=cut",
-    price: "65,00"
+    price: 65.0
   }
 ];
-function printList(cart) {
-  var aux = [];
 
-  if (cart) {
-    cart.map((x, i) =>
-      aux.push(
-        <Text key={i} style={styles.text}>
-          {x.price}
-        </Text>
-      )
-    );
-  }
-  return aux;
-}
 export default function Main() {
   const cart = useSelector(state => state.cart);
   return (
@@ -39,10 +29,11 @@ export default function Main() {
           justifyContent: "space-between"
         }}
       >
-        <ItemContainer item={items[0]} />
-        <ItemContainer item={items[1]} />
+        <ItemContainer item={items[0]} selected={items[0].selected} />
+        <ItemContainer item={items[1]} selected={items[1].selected} />
       </View>
-      <Text style={styles.text}> {printList(cart)}</Text>
+
+      <Cart />
     </View>
   );
 }

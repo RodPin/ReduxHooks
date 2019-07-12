@@ -2,7 +2,6 @@ import React from "react";
 import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
 import { SH, SW } from "../utils/sizes";
 import { useDispatch } from "react-redux";
-
 function addToCart(item) {
   return {
     type: "ADD_TO_CART",
@@ -19,7 +18,11 @@ function ItemContainer({ item }) {
   const dispatch = useDispatch();
   return (
     <TouchableOpacity onPress={() => dispatch(addToCart(item))}>
-      <View style={styles.container}>
+      <View
+        style={{
+          ...styles.container
+        }}
+      >
         <Image
           style={styles.img}
           source={{
@@ -28,11 +31,6 @@ function ItemContainer({ item }) {
         />
         <Text style={styles.text}>R$ {item.price}</Text>
       </View>
-      <TouchableOpacity onPress={() => dispatch(removeFromCart(item))}>
-        <View>
-          <Text style={{ ...styles.text, color: "red" }}>R$ {item.price}</Text>
-        </View>
-      </TouchableOpacity>
     </TouchableOpacity>
   );
 }
@@ -41,6 +39,7 @@ const styles = StyleSheet.create({
   container: {
     width: SH * 0.24,
     height: SW * 0.4,
+    borderWidth: 5,
     marginHorizontal: SW * 0.02,
     backgroundColor: "white",
     borderRadius: 10,

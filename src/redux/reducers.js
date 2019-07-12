@@ -9,7 +9,11 @@ export default function cartReducer(state = INITIAL_STATE, action) {
     case "REMOVE_FROM_CART":
       return {
         ...state,
-        cart: state.cart.filter(item => item !== action.item)
+        cart: state.cart.filter(item => item.name !== action.item.name)
+      };
+    case "CLEAR_CART":
+      return {
+        cart: []
       };
     default:
       return state;
