@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     width: SH * 0.24,
     height: SW * 0.4,
     borderWidth: 5,
-    marginHorizontal: SW * 0.02,
+    margin: SW * 0.02,
     backgroundColor: "white",
     borderRadius: 10,
     alignItems: "center",
