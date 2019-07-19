@@ -47,8 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   img: {
-    height: SH * 0.18,
-    width: SW * 0.25
+    height: SH * 0.17,
+    width: SW * 0.3
   },
   text: {
     fontSize: SH * 0.034

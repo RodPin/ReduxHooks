@@ -27,7 +27,7 @@ export default [
   ),
   new Item(
     "BeiseBall",
-    "https://contents.mediadecathlon.com/p1345747/800x800/sq/distance_100_golf_ball_x12_-_white_inesis_golf_8334028_1345747.jpg?k=8bfca050583b3bfb22ace6db8769f696",
+    "https://fivethirtyeight.com/wp-content/uploads/2018/01/mobileinfo-01.png",
     59.0
   )
 ];
